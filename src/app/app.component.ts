@@ -10,7 +10,6 @@ export class AppComponent {
     { title: 'Products', href: '/products/products', icon: 'bed-outline' },
     { title: 'Categorys', href: '/categorys/categorys', icon: 'paper-plane' },
     { title: 'Cart', href: '/cart/cart', icon: 'cart-outline' },
-    { title: 'Checkout', href: '/checkout/checkout', icon: 'bag-check-outline' },
   ];
 
   constructor() { }
