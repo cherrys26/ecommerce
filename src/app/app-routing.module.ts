@@ -2,15 +2,31 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+
   {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    path: 'home/:id',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: '',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'products/:id',
+    loadChildren: () => import('./products/products.module').then(m => m.ProductsPageModule)
+  },
+  {
+    path: 'categorys/:id',
+    loadChildren: () => import('./categorys/categorys.module').then(m => m.CategorysPageModule)
+  },
+  {
+    path: 'cart/:id',
+    loadChildren: () => import('./cart/cart.module').then(m => m.CartPageModule)
+  },
+  {
+    path: 'checkout/:id',
+    loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutPageModule)
+  },
 ];
 
 @NgModule({
@@ -19,4 +35,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
