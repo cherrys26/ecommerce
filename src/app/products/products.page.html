@@ -9,7 +9,7 @@
 
 
 <ion-content onload="runHttp()">
-
+  
   <ion-card *ngFor="let product of products">
     <a [routerLink]="['/product', product.id]">
       <ion-card-header>

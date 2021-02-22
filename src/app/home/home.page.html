@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-img slot="end" src="./assets/coollogo_com-93742336.png" class="main-img"></ion-img>
+    <ion-icon id="cart" slot="end" name="cart-outline"></ion-icon>
+    <!-- <ion-img slot="end" src="./assets/coollogo_com-93742336.png" class="main-img"></ion-img> -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,13 +10,16 @@
 
 
 <ion-content [fullscreen]="true">
-  <h1>Welcome to Cherrys!</h1>
+  <h1 id="center">Welcome to</h1>
 
-  <ion-img src="./assets/hero-bcg.jpeg"></ion-img>
+  <ion-img id="main-pic" src="./assets/coollogo_com-93742336.png"></ion-img>
 
-  <ion-button>Shop Categorys</ion-button>
-  <ion-button>Shop All</ion-button>
-
+  <a href="./categorys/categorys">
+    <ion-button color="tertiary">Shop Categorys</ion-button>
+  </a>
+  <a href="./products/products">
+    <ion-button color="tertiary">Shop All</ion-button>
+  </a>
   <div>
     <ion-label>
       <h1>Featured Products</h1>
