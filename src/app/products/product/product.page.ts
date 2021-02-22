@@ -10,11 +10,9 @@ export class ProductPage implements OnInit {
 
   constructor(private router: Router) { }
 
-
-
   ngOnInit() {
 
-    console.log(this.router.url);
+    console.log(this.router.url[9]);
 
   }
 
