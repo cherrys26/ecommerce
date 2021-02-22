@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-img slot="end" src="./assets/coollogo_com-93742336.png" class="main-img"></ion-img>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -7,13 +8,16 @@
 </ion-header>
 
 
+
 <ion-content onload="runRoute()">
   <ion-card *ngFor="let category of categorys">
-    <ion-card-header>
-      <ion-card-title>
-        {{category.title}}
-      </ion-card-title>
-    </ion-card-header>
-    <ion-img src="{{ category.image }}"></ion-img>
+    <a [routerLink]="['/category', category.title]">
+      <ion-card-header>
+        <ion-card-title>
+          {{category.title}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-img src="{{ category.image }}"></ion-img>
+    </a>
   </ion-card>
 </ion-content>

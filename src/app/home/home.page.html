@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-img slot="end" src="./assets/coollogo_com-93742336.png" class="main-img"></ion-img>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,21 +9,30 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-label>
-    <h1>Featured Products</h1>
-  </ion-label>
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide>
-      <h3>queen panel bed</h3>
-      <ion-img src="./assets/product-1.jpeg"></ion-img>
-    </ion-slide>
-    <ion-slide>
-      <h3>fridge</h3>
-      <ion-img src="./assets/product-5.jpeg"></ion-img>
-    </ion-slide>
-    <ion-slide>
-      <h3>table</h3>
-      <ion-img src="./assets/product-8.jpeg"></ion-img>
-    </ion-slide>
-  </ion-slides>
+  <h1>Welcome to Cherrys!</h1>
+
+  <ion-img src="./assets/hero-bcg.jpeg"></ion-img>
+
+  <ion-button>Shop Categorys</ion-button>
+  <ion-button>Shop All</ion-button>
+
+  <div>
+    <ion-label>
+      <h1>Featured Products</h1>
+    </ion-label>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <h3>queen panel bed</h3>
+        <ion-img src="./assets/product-1.jpeg"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <h3>fridge</h3>
+        <ion-img src="./assets/product-5.jpeg"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <h3>table</h3>
+        <ion-img src="./assets/product-8.jpeg"></ion-img>
+      </ion-slide>
+    </ion-slides>
+  </div>
 </ion-content>

@@ -1,26 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-img slot="end" src="./assets/coollogo_com-93742336.png" class="main-img"></ion-img>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content onload="runHttp()">
 
   <ion-card *ngFor="let product of products">
-    <ion-card-header>
-      <ion-card-title>
-        {{ product.title }}
-      </ion-card-title>
-      <ion-card-subtitle>
-        <h4 id="subtitle">{{ product.rating }}%</h4>
-      </ion-card-subtitle>
-    </ion-card-header>
-    <ion-img src="{{ product.image }}"></ion-img>
-    <ion-card-content>
-      <h3>${{ product.price }}</h3>
-    </ion-card-content>
+    <a [routerLink]="['/product', product.id]">
+      <ion-card-header>
+        <ion-card-title>
+          {{ product.title }}
+        </ion-card-title>
+        <ion-card-subtitle>
+          <h4 id="subtitle">{{ product.rating }}%</h4>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-img src="{{ product.image }}"></ion-img>
+      <ion-card-content>
+        <h3>${{ product.price }}</h3>
+      </ion-card-content>
+    </a>
   </ion-card>
 
 
