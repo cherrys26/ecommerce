@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-categorys',
   templateUrl: './categorys.page.html',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategorysPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: HttpClient) { }
+
+  categorys: any = []
+
+  runRoute() {
+    this.route.get('http://localhost:3000/api/categorys').subscribe(data => { console.log(data); this.categorys = data; })
+  }
 
   ngOnInit() {
+    this.runRoute()
   }
 
 }

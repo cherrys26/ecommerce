@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
+  slideOpts = {
+    initialSlide: 0,
+    speed: 500,
+    autoplay: true,
+  };
+
   constructor() { }
 
   ngOnInit() {

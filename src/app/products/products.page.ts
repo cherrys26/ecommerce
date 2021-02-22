@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { LoadingController } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-products',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsPage implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  products: any = [];
+
+  runHttp() {
+    this.http.get('http://localhost:3000/api/products').subscribe(data => { console.log(data); this.products = data; })
+  }
 
   ngOnInit() {
+    this.runHttp();
   }
 
 }

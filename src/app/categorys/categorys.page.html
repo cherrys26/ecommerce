@@ -5,6 +5,15 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  Category
+
+
+<ion-content onload="runRoute()">
+  <ion-card *ngFor="let category of categorys">
+    <ion-card-header>
+      <ion-card-title>
+        {{category.title}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-img src="{{ category.image }}"></ion-img>
+  </ion-card>
 </ion-content>
