@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { ProductsPage } from '../../products/products.page';
 
 import { CategoryPageRoutingModule } from './category-routing.module';
-
 import { CategoryPage } from './category.page';
 
 @NgModule({
@@ -13,8 +13,8 @@ import { CategoryPage } from './category.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoryPageRoutingModule
+    CategoryPageRoutingModule,
   ],
-  declarations: [CategoryPage]
+  declarations: [CategoryPage, ProductsPage]
 })
-export class CategoryPageModule {}
+export class CategoryPageModule { }

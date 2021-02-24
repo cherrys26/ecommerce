@@ -11,7 +11,7 @@
 
 
 <ion-content onload="runRoute()">
-  <ion-card *ngFor="let category of categorys">
+  <ion-card *ngFor="let category of categorys.items">
     <a [routerLink]="['/category', category.title]">
       <ion-card-header>
         <ion-card-title>

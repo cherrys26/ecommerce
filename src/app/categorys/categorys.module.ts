@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CategorysPageRoutingModule } from './categorys-routing.module';
-
 import { CategorysPage } from './categorys.page';
 
 @NgModule({
@@ -13,8 +12,7 @@ import { CategorysPage } from './categorys.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CategorysPageRoutingModule
-  ],
+    CategorysPageRoutingModule,  ],
   declarations: [CategorysPage]
 })
-export class CategorysPageModule {}
+export class CategorysPageModule { }
