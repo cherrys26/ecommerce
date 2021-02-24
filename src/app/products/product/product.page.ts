@@ -53,7 +53,7 @@ export class ProductPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getProd(this.router.url[9]);
+    this.getProd(window.location.href.substr(window.location.href.lastIndexOf('/') + 1));
     console.log(this.router.url);
   }
 
