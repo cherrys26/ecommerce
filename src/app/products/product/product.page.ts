@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product',
@@ -8,12 +10,51 @@ import { Router } from '@angular/router';
 })
 export class ProductPage implements OnInit {
 
-  constructor(private router: Router) { }
+  title = '';
+  rating = '';
+  description = '';
+  image = '';
+  price = '';
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    public toastController: ToastController) { }
+
+  getProd(id): void {
+    this.http.get(`http://localhost:3000/api/products/${id}`)
+      .subscribe(data => {
+        console.log(data);
+        this.title = data['title']
+        this.rating = data['rating']
+        this.description = data['description']
+        this.image = data['image']
+        this.price = data['price']
+      })
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Added to Cart!',
+      duration: 5000,
+      position: 'bottom',
+      buttons: [
+        {
+          side: 'start',
+          icon: 'bag-check',
+        }, {
+          text: 'View Cart',
+          handler: () => {
+            open("../cart/cart");
+          }
+        }
+      ]
+    });
+    toast.present();
+  }
 
   ngOnInit() {
-
-    console.log(this.router.url[9]);
-
+    this.getProd(this.router.url[9]);
+    console.log(this.router.url);
   }
 
 }

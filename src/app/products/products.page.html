@@ -11,7 +11,7 @@
 
 <ion-content onload="runHttp()">
 
-  <ion-card *ngFor="let product of products">
+  <ion-card *ngFor="let product of products.items">
     <a [routerLink]="['/product', product.id]">
       <ion-card-header>
         <ion-card-title>
