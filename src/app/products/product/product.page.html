@@ -1,16 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-icon id="cart" slot="end" name="cart-outline"></ion-icon>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons vertical="start" horizontal="end" slot="end">
+      <ion-button (click)="openCart()" #cart>
+        <ion-icon name="cart" class="cart-outline"></ion-icon>
+        <ion-badge class="cart-length">{{ cartItemCount | async }}</ion-badge>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
 
+
 <ion-content onload="getProd()">
-  <ion-content>
+  <ion-content *ngFor='let prod of product'>
     <ion-card-header>
       <ion-card-title>
         {{title}}
@@ -23,7 +29,7 @@
     <ion-card-content>
       <h3>{{description}}</h3>
       <h3 id="space">${{price}}
-        <ion-button color="tertiary" (click)="presentToast()">Add to Cart</ion-button>
+        <ion-button color="tertiary" (click)="presentToast(); addToCart()">Add to Cart</ion-button>
       </h3>
     </ion-card-content>
 

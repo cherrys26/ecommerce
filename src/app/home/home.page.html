@@ -1,24 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-icon id="cart" slot="end" name="cart-outline"></ion-icon>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons vertical="start" horizontal="end" slot="end">
+      <ion-button (click)="openCart()" #cart>
+        <div class="cart-length">{{ cartItemCount | async }}</div>
+        <ion-icon name="cart" class="cart-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content [fullscreen]="true">
+
+<ion-content [fullscreen]="true" onload="runHttp(); runRoute()">
   <h1 id="center">Welcome to</h1>
 
   <ion-img id="main-pic" src="./assets/coollogo_com-93742336.png"></ion-img>
-
-  <a routerlink="./categorys/categorys">
-    <ion-button color="tertiary">Shop Categorys</ion-button>
-  </a>
-  <a href="./products/products">
-    <ion-button color="tertiary">Shop All</ion-button>
-  </a>
+  <div>
+    <a href="./categorys/categorys">
+      <ion-button color="tertiary">Shop Categorys</ion-button>
+    </a>
+    <a href="./products/products">
+      <ion-button color="tertiary">Shop All</ion-button>
+    </a>
+  </div>
   <div>
     <ion-label>
       <h1>Featured Products</h1>

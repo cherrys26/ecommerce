@@ -1,11 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-icon id="cart" slot="end" name="cart-outline"></ion-icon>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-fab vertical="center" horizontal="end" slot="end">
+      <ion-fab-button (click)="openCart()" #cart>
+        <div class="cart-length">{{ cartItemCount | async }}</div>
+        <ion-icon name="cart" class="cart-icon"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </ion-toolbar>
 </ion-header>
+
 
 
 

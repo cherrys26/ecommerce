@@ -1,6 +1,8 @@
 {
   "name": "cherrys",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "67755a72"
 }

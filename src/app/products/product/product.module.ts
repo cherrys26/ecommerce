@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { ProductPageRoutingModule } from './product-routing.module';
 import { ProductPage } from './product.page';
 
+
+
 @NgModule({
   imports: [
     CommonModule,

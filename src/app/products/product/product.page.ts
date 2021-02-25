@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, ModalController, NavParams, NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { CartService } from '../../services/cart.service';
+import { CartModalPage } from '../../cart/cartModal/cart-modal.page';
+import { ProdProvider } from './product'
 
 @Component({
   selector: 'app-product',
@@ -10,17 +12,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductPage implements OnInit {
 
+  film: any;
+  inCart = false;
+
+  id = '';
   title = '';
   rating = '';
   description = '';
   image = '';
   price = '';
-  constructor(
-    private router: Router,
-    private http: HttpClient,
-    public toastController: ToastController) { }
 
-  getProd(id): void {
+  constructor(
+    private http: HttpClient,
+    public toastController: ToastController,
+    private modalCtrl: ModalController,
+    public navCtrl: NavController,
+    public prodProvider: ProdProvider,
+    public navParams: NavParams) {
+  }
+
+  getProd(id) {
     this.http.get(`http://localhost:3000/api/products/${id}`)
       .subscribe(data => {
         console.log(data);
@@ -29,6 +40,11 @@ export class ProductPage implements OnInit {
         this.description = data['description']
         this.image = data['image']
         this.price = data['price']
+        this.id = data['id']
+        this.prodProvider.inCart(this.id).then(cart => {
+          this.inCart = cart;
+          console.log(this.id);
+        })
       })
   }
 
@@ -42,7 +58,7 @@ export class ProductPage implements OnInit {
           side: 'start',
           icon: 'bag-check',
         }, {
-          text: 'View Cart',
+          text: 'Checkout',
           handler: () => {
             open("../cart/cart");
           }
@@ -52,9 +68,24 @@ export class ProductPage implements OnInit {
     toast.present();
   }
 
+  addToCart() {
+    this.prodProvider.addToCart(this.id).then(() => {
+      this.inCart = true;
+      console.log(this.id);
+    });
+  }
+
   ngOnInit() {
     this.getProd(window.location.href.substr(window.location.href.lastIndexOf('/') + 1));
-    console.log(this.router.url);
+  }
+
+  async openCart() {
+    let modal = await this.modalCtrl.create({
+      component: CartModalPage,
+      cssClass: 'cart-modal'
+    });
+    modal.onWillDismiss();
+    modal.present();
   }
 
 }
